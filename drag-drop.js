@@ -66,30 +66,74 @@ const DragDrop = {
     },
 
     normalizeColor(rgbString) {
-        // Map of known dark-mode colors to their light-mode equivalents in NotebookLM
-        // This prevents "double-darkening" when capturing colors while in dark mode.
-        const colorMap = {
-            'rgb(61, 45, 45)': '#F8CCC8',  // Pink
-            'rgb(26, 47, 69)': '#C2E7FF',  // Blue
-            'rgb(27, 45, 33)': '#C4EED0',  // Green
-            'rgb(53, 46, 27)': '#FFF3CD',  // Yellow
-            'rgb(38, 27, 53)': '#E8D5F9',  // Purple
-            'rgb(29, 44, 44)': '#A8F0F0',  // Cyan
-            'rgb(51, 40, 29)': '#FFE5CC',  // Orange
-            'rgb(31, 43, 25)': '#D0F0C0',  // Mint
-            'rgb(23, 23, 23)': '#F5F5F5',   // Mist (Empty/Default)
-            // Common variants seen in high-zoom or different opacity levels
-            'rgb(53, 53, 53)': '#F5F5F5',
-            'rgb(41, 42, 45)': '#F5F5F5',
-            'rgb(50, 52, 62)': '#F5F5F5', // #32343E - specific untitled dark color
-            'rgb(71, 71, 75)': '#EDEFFA'  // #47474B - untitled from lightmode seen in darkmode
-        };
+        if (!rgbString || !rgbString.startsWith('rgb')) return rgbString;
+        const [r, g, b] = rgbString.match(/\d+/g).map(Number);
+        const [h, s, l] = this.rgbToHsl(r, g, b);
 
-        const normalized = colorMap[rgbString];
-        if (normalized) return normalized;
+        // Official Light Palette (Anchor colors)
+        const palette = [
+            '#F8CCC8', '#C2E7FF', '#C4EED0', '#FFF3CD',
+            '#E8D5F9', '#A8F0F0', '#FFE5CC', '#D0F0C0',
+            '#E6E6FA', '#FFE4E1', '#E0F7FA', '#FFDAB9',
+            '#F0FFF0', '#F3E5F5', '#FFF5EE', '#F5F5F5',
+            '#EDEFFA'
+        ];
 
-        // If not in map, return as is (but convert to hex if possible for storage consistency)
-        return this.rgbToHex(rgbString);
+        // 1. NEUTRAL DETECTION (Grays/Untitled)
+        // If saturation is very low, it's a gray/neutral item.
+        if (s < 2) {
+            // Return either default mist or the slightly blue untitled based on lightness
+            return (l > 95) ? '#F5F5F5' : '#EDEFFA';
+        }
+
+        // 2. COLOR SNAPPING (Hue matching)
+        let closestHex = palette[0];
+        let minHueDiff = Infinity;
+
+        for (const hex of palette) {
+            const [tr, tg, tb] = this.hexToRgb(hex);
+            const [th, ts, tl] = this.rgbToHsl(tr, tg, tb);
+
+            // Skip neutrals in the palette for hue matching
+            if (ts < 5) continue;
+
+            // Calculate circular Hue difference (0-360)
+            let diff = Math.abs(h - th);
+            if (diff > 180) diff = 360 - diff;
+
+            if (diff < minHueDiff) {
+                minHueDiff = diff;
+                closestHex = hex;
+            }
+        }
+
+        return closestHex;
+    },
+
+    rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max === min) {
+            h = s = 0; // achromatic
+        } else {
+            const d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+        }
+
+        return [h * 360, s * 100, l * 100];
+    },
+
+    hexToRgb(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
     },
 
     rgbToHex(rgb) {

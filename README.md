@@ -20,13 +20,19 @@
 ## Screenshots
 
 ### 1. Main Interface
-![Main Interface](screenshots/interface_main.png)
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![Main Interface](screenshots/interface_main.png) | ![Main Interface Dark](screenshots/interface_main_dark.png) |
 
 ### 2. Grid View (Folder)
-![Grid View](screenshots/folder_grid_view.png)
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![Grid View](screenshots/folder_grid_view.png) | ![Grid View Dark](screenshots/folder_grid_view_dark.png) |
 
 ### 3. List View (Folder)
-![List View](screenshots/folder_list_view.png)
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![List View](screenshots/folder_list_view.png) | ![List View Dark](screenshots/folder_list_view_dark.png) |
 
 ### 4. Edit Folder Title & Emoji
 ![Edit Folder Title & Emoji](screenshots/edit_folder_title_emoji.png)
