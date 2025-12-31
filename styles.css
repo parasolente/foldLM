@@ -1,0 +1,1486 @@
+/* ========================================
+   NotebookLM Folders Extension - Styles
+   ======================================== */
+
+/* Inherit fonts from NotebookLM */
+.nlm-folder,
+.nlm-folder *,
+.nlm-create-folder-btn,
+.nlm-create-folder-btn *,
+.nlm-folder-modal,
+.nlm-folder-modal *,
+.nlm-create-folder-dialog,
+.nlm-create-folder-dialog *,
+.nlm-folder-context-menu,
+.nlm-folder-context-menu *,
+.nlm-folders-header {
+  font-family: "Google Sans", Roboto, Arial, sans-serif !important;
+}
+
+/* Variables CSS basadas en los estilos de NotebookLM */
+:root {
+  --folder-pink: rgb(247, 237, 235);
+  --folder-pink-hover: #f5b8b3;
+  --folder-blue: #c2e7ff;
+  --folder-green: #c4eed0;
+  --folder-yellow: #fff3cd;
+  --folder-purple: #e8d5f9;
+  --card-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --card-shadow-hover: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+
+  /* Theme-aware variables */
+  --header-text-color: rgba(0, 0, 0, 0.87);
+  --create-btn-bg: rgb(255, 255, 255);
+  --create-btn-border: rgb(221, 225, 235);
+  --create-btn-text-color: rgb(48, 48, 48);
+  --create-icon-bg: #EDEFFA;
+  --create-icon-plus: rgb(66, 89, 255);
+
+  --modal-bg: #ffffff;
+  --modal-text-primary: rgba(0, 0, 0, 0.87);
+  --modal-text-secondary: rgba(0, 0, 0, 0.6);
+  --modal-border: rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+  --input-border: rgba(0, 0, 0, 0.2);
+  --input-text: #202124;
+  --label-color: #444746;
+  --btn-text-color: #0b57d0;
+  --btn-hover-bg: rgba(11, 87, 208, 0.08);
+  --ripple-bg: #D0DFF6;
+  --menu-bg: rgb(240, 244, 249);
+  --menu-text: rgb(31, 31, 31);
+  --menu-icon: rgb(68, 71, 70);
+  --menu-hover: rgba(31, 31, 31, 0.08);
+  --input-accent: #1a73e8;
+  --input-label-idle: #444746;
+  --input-error: #B3261E;
+  --toggle-bg: #fff;
+  --toggle-border: #C4C7C5;
+  --toggle-active-bg: #EDEFFA;
+  --toggle-hover-bg: #EDEDED;
+  --toggle-ripple-bg: #C9CAD3;
+  --toggle-icon: #1B1B1C;
+  --menu-trigger-color: #444746;
+  --menu-trigger-hover-bg: rgba(68, 71, 70, 0.3);
+  --folder-text-title: rgb(31, 31, 31);
+  --folder-text-subtitle: rgb(83, 85, 89);
+}
+
+/* Dark theme overrides */
+[data-theme='dark'],
+.nlm-dark-theme {
+  --header-text-color: rgb(199, 199, 199);
+  --create-btn-bg: #22262B;
+  --create-btn-border: #37383B;
+  --create-btn-text-color: rgb(199, 199, 199);
+  --create-icon-bg: #2F334B;
+  --create-icon-plus: rgb(195, 202, 255);
+
+  --modal-bg: #22262B;
+  --modal-text-primary: rgb(199, 199, 199);
+  --modal-text-secondary: #B0B0B0;
+  --modal-border: #37383B;
+  --input-bg: #1E1E1E;
+  --input-border: #37383B;
+  --input-text: rgb(199, 199, 199);
+  --label-color: #B0B0B0;
+  --btn-text-color: #A8C7FA;
+  --btn-hover-bg: #1E2126;
+  --ripple-bg: #343C48;
+  --menu-bg: #1E1F20;
+  --menu-text: #E3E3E3;
+  --menu-icon: #E3E3E3;
+  --menu-hover: #2E2F2F;
+  --input-accent: #a8c7fa;
+  --input-border-idle: #8E918F;
+  --input-label-idle: #C4C7C5;
+  --input-error: #F2B8B5;
+  --toggle-bg: #22262B;
+  --toggle-border: #444746;
+  --toggle-active-bg: #2F334B;
+  --toggle-hover-bg: #3D4157;
+  --toggle-ripple-bg: #4E5165;
+  --toggle-icon: #F2F2F2;
+  --menu-trigger-color: rgb(171, 200, 250);
+  --menu-trigger-hover-bg: rgba(168, 199, 250, 0.1);
+
+  /* Shared folder colors in dark mode - slightly desaturated and darker */
+  --folder-pink: #3D2D2D;
+  --folder-blue: #1A2F45;
+  --folder-green: #1B2D21;
+  --folder-yellow: #352E1B;
+  --folder-purple: #261B35;
+  --folder-text-title: #EEF0FF;
+  --folder-text-subtitle: rgb(195, 198, 214);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --header-text-color: rgb(199, 199, 199);
+    --create-btn-bg: #22262B;
+    --create-btn-border: #37383B;
+    --create-btn-text-color: rgb(199, 199, 199);
+    --create-icon-bg: #2F334B;
+    --create-icon-plus: rgb(195, 202, 255);
+
+    --modal-bg: #22262B;
+    --modal-text-primary: rgb(199, 199, 199);
+    --modal-text-secondary: #B0B0B0;
+    --modal-border: #37383B;
+    --input-bg: #1E1E1E;
+    --input-border: #37383B;
+    --input-text: rgb(199, 199, 199);
+    --label-color: #B0B0B0;
+    --btn-text-color: #A8C7FA;
+    --btn-hover-bg: #1E2126;
+    --ripple-bg: #343C48;
+    --menu-bg: #1E1F20;
+    --menu-text: #E3E3E3;
+    --menu-icon: #E3E3E3;
+    --menu-hover: #2E2F2F;
+    --input-accent: #a8c7fa;
+    --input-border-idle: #8E918F;
+    --input-label-idle: #C4C7C5;
+    --input-error: #F2B8B5;
+    --toggle-bg: #22262B;
+    --toggle-border: #444746;
+    --toggle-active-bg: #2F334B;
+    --toggle-hover-bg: #3D4157;
+    --toggle-ripple-bg: #4E5165;
+    --toggle-icon: #F2F2F2;
+    --menu-trigger-color: rgb(171, 200, 250);
+    --menu-trigger-hover-bg: rgba(168, 199, 250, 0.1);
+    --folder-pink: #3D2D2D;
+    --folder-blue: #1A2F45;
+    --folder-green: #1B2D21;
+    --folder-yellow: #352E1B;
+    --folder-purple: #261B35;
+    --folder-text-title: #EEF0FF;
+    --folder-text-subtitle: rgb(195, 198, 214);
+  }
+}
+
+/* ========================================
+   Folder Card Styling
+   ======================================== */
+
+.nlm-folder {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 224px;
+  border-radius: 12px;
+  background-color: var(--folder-pink);
+  background-image: none;
+  /* Default for light mode */
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Darkening overlay for folders and notebooks in dark mode */
+[data-theme='dark'] .nlm-folder,
+.nlm-dark-theme .nlm-folder,
+[data-theme='dark'] .nlm-notebook-card,
+.nlm-dark-theme .nlm-notebook-card {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) !important;
+  background-blend-mode: multiply;
+}
+
+/* Exclude default (grey) notebooks from the darkening overlay to match native look */
+[data-theme='dark'] .nlm-notebook-card.nlm-default-color,
+.nlm-dark-theme .nlm-notebook-card.nlm-default-color {
+  background-image: none !important;
+  background-color: #32343E !important;
+}
+
+
+
+.nlm-folder-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.nlm-folder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 16px 0 20px;
+  /* Padding for top area */
+  margin-bottom: 24px;
+}
+
+.nlm-folder-emoji {
+  font-size: 54px;
+  line-height: 1;
+  color: rgb(48, 48, 48);
+}
+
+.nlm-folder-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--menu-trigger-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: background 0.2s;
+}
+
+.nlm-folder-more-btn:hover {
+  background-color: var(--menu-trigger-hover-bg);
+}
+
+.nlm-folder-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--folder-text-title);
+  margin-bottom: 0px;
+  line-height: 28px;
+  padding: 0 20px;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.nlm-folder-subtitle {
+  font-size: 14px;
+  color: var(--folder-text-subtitle);
+  padding: 8px 20px 24px;
+  margin-top: auto;
+  line-height: 24px;
+}
+
+.nlm-folder-subtitle-count {
+  color: var(--folder-text-subtitle);
+  font-weight: 500;
+}
+
+/* ========================================
+   Create Folder Button
+   ======================================== */
+
+.nlm-create-folder-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 224px;
+  border-radius: 12px;
+  border: 1px solid var(--create-btn-border);
+  background-color: var(--create-btn-bg);
+  color: var(--create-btn-text-color);
+  cursor: pointer;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.nlm-create-folder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  gap: 8px;
+  color: var(--create-btn-text-color);
+  cursor: pointer;
+}
+
+.nlm-create-folder-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--create-icon-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nlm-create-folder-icon-plus {
+  width: 24px;
+  height: 24px;
+  color: var(--create-icon-plus);
+  fill: var(--create-icon-plus);
+  display: block;
+}
+
+.nlm-create-folder-text {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--create-btn-text-color);
+  line-height: 36px;
+  height: 36px;
+  display: block;
+  cursor: pointer;
+}
+
+/* ========================================
+   Folders Container
+   ======================================== */
+
+.nlm-folders-section {
+  margin-bottom: 24px;
+}
+
+.nlm-folders-header {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--header-text-color);
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+.nlm-folders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+/* ========================================
+   Drag & Drop Visual Feedback
+   ======================================== */
+
+.nlm-folder.drag-over {
+  transform: scale(1.02);
+  outline: 2px solid #1a73e8;
+  outline-offset: 4px;
+  z-index: 10;
+}
+
+.nlm-folder.drag-over * {
+  pointer-events: none;
+}
+
+.nlm-notebook-dragging {
+  opacity: 0.5;
+}
+
+project-button.drag-over {
+  outline: 3px solid #1a73e8 !important;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Folder Modal (Content View)
+   ======================================== */
+
+.nlm-folder-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.nlm-folder-modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nlm-folder-modal {
+  background-color: var(--modal-bg);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+
+.nlm-folder-modal-overlay.visible .nlm-folder-modal {
+  transform: scale(1);
+}
+
+.nlm-folder-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--modal-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nlm-folder-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nlm-folder-modal-emoji {
+  font-size: 28px;
+}
+
+.nlm-folder-modal-name {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--modal-text-primary);
+}
+
+.nlm-folder-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--modal-text-secondary);
+}
+
+.nlm-folder-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   Folder Modal Table View
+   ======================================== */
+
+.nlm-folder-modal-content {
+  padding: 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+  flex: 1;
+  background-color: var(--modal-bg);
+  box-sizing: border-box;
+}
+
+/* Variables for the table */
+.nlm-folder-modal {
+  --bg-color: var(--modal-bg);
+  --text-primary: var(--modal-text-primary);
+  --text-secondary: var(--modal-text-secondary);
+  --row-hover: rgba(128, 128, 128, 0.1);
+  --menu-hover: rgba(128, 128, 128, 0.1);
+  --border-color: var(--modal-border);
+  --shadow-menu: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+}
+
+h2.nlm-modal-heading {
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+/* Table Structure */
+.notebook-table {
+  display: grid;
+  grid-template-columns: 2fr minmax(100px, 0.8fr) minmax(120px, 0.8fr) 0.6fr 40px;
+  width: 100%;
+}
+
+/* Headers */
+.header-row {
+  display: contents;
+}
+
+.header-cell {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
+}
+
+/* Rows */
+.data-row {
+  display: contents;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  position: relative;
+  height: 48px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell:last-child {
+  overflow: visible;
+}
+
+.cell.meta {
+  color: var(--text-secondary);
+}
+
+/* Row Hover */
+.data-row:hover .cell {
+  background-color: var(--row-hover);
+}
+
+.data-row:hover .cell:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.data-row:hover .cell:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* Notebook Icons */
+.icon-wrapper {
+  font-size: 18px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.title-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+/* --- Botón de 3 puntos (Estilo sutil) --- */
+.menu-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--menu-trigger-color);
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-trigger:hover {
+  background-color: var(--menu-trigger-hover-bg);
+}
+
+.menu-trigger .material-symbols-outlined {
+  font-size: 24px;
+}
+
+/* --- EL MENÚ (Estilo replicado) --- */
+.nlm-dropdown-portal {
+  display: none;
+  position: fixed;
+  /* Fixed as per portal logic */
+  /* Top/Left set via JS */
+  background-color: #ecf2f8;
+  min-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 8px 0;
+  z-index: 10001;
+  overflow: hidden;
+  border: none;
+}
+
+.nlm-dropdown-portal.show {
+  display: block;
+}
+
+/* Los items del menú */
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+
+  /* Tipografía */
+  color: #1e1f20;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  text-decoration: none;
+}
+
+/* Iconos (SVG) */
+.menu-item svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+  fill: #444746;
+}
+
+/* EFECTO HOVER */
+.menu-item:hover {
+  background-color: #dce1e6;
+}
+
+/* Ajuste específico para el icono de borrar */
+.icon-trash {
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+.nlm-folder-modal-empty {
+  grid-column: 1 / -1;
+  /* Span all columns */
+  display: grid;
+  place-items: center;
+  align-content: center;
+  /* Vertical center if height allows */
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  padding: 48px;
+  box-sizing: border-box;
+  text-align: center;
+  color: var(--modal-text-secondary);
+  font-size: 16px;
+}
+
+/* ========================================
+   Notebook Clone in Modal
+   ======================================== */
+
+.nlm-notebook-clone {
+  width: 200px;
+  min-height: 140px;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.nlm-notebook-clone:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.nlm-notebook-clone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.nlm-notebook-clone-emoji {
+  font-size: 28px;
+}
+
+.nlm-notebook-clone-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 8px;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.nlm-notebook-clone-subtitle {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: auto;
+}
+
+/* ========================================
+   Create Folder Dialog
+   ======================================== */
+
+.nlm-create-folder-dialog {
+  background-color: var(--modal-bg);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  padding: 24px;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14);
+}
+
+.nlm-dialog-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--modal-text-primary);
+}
+
+.nlm-dialog-field {
+  margin-bottom: 16px;
+}
+
+.nlm-dialog-label {
+  display: block;
+  font-size: 12px;
+  color: var(--input-label-idle);
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.nlm-dialog-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border-idle);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.nlm-dialog-input:focus {
+  border-color: var(--input-accent) !important;
+  border-width: 1px;
+}
+
+.nlm-dialog-input:focus+.nlm-dialog-label,
+.nlm-dialog-field:focus-within .nlm-dialog-label {
+  color: var(--input-accent) !important;
+}
+
+/* Error state when empty (placeholder is shown) */
+.nlm-dialog-input:placeholder-shown {
+  border-color: var(--input-error) !important;
+}
+
+.nlm-dialog-field:has(.nlm-dialog-input:placeholder-shown) .nlm-dialog-label {
+  color: var(--input-error) !important;
+}
+
+/* Focused state (only applies accent blue if NOT empty) */
+.nlm-dialog-input:focus:not(:placeholder-shown) {
+  border-color: var(--input-accent) !important;
+}
+
+.nlm-dialog-field:focus-within:not(:has(.nlm-dialog-input:placeholder-shown)) .nlm-dialog-label {
+  color: var(--input-accent) !important;
+}
+
+.nlm-emoji-selection-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nlm-emoji-trigger-btn {
+  width: 48px;
+  height: 48px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: 12px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.nlm-emoji-trigger-btn:hover {
+  background-color: #e8eaed;
+  border-color: #dadce0;
+}
+
+.nlm-advanced-picker-popover {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  margin-top: 8px;
+  animation: picker-fade-in 0.2s ease-out;
+}
+
+@keyframes picker-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Advanced Emoji Picker */
+.nlm-advanced-emoji-picker {
+  width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Google Sans Text', 'Google Sans', 'Roboto', Arial, sans-serif;
+}
+
+.nlm-emoji-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 4px;
+}
+
+.nlm-emoji-tab {
+  border: none;
+  background: none;
+  font-size: 20px;
+  padding: 8px 0;
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.nlm-emoji-tab:hover {
+  background: #f1f3f4;
+  border-radius: 8px 8px 0 0;
+}
+
+.nlm-emoji-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 3px;
+  background: #0b57d0;
+  border-radius: 3px 3px 0 0;
+}
+
+.nlm-emoji-grid-container {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.nlm-emoji-grid-scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 8px 12px;
+}
+
+/* Custom Scrollbar for Emoji Picker */
+.nlm-emoji-grid-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.nlm-emoji-grid-scroll::-webkit-scrollbar-thumb {
+  background: #bdc1c6;
+  border-radius: 10px;
+}
+
+.nlm-emoji-grid-scroll::-webkit-scrollbar-thumb:hover {
+  background: #9aa0a6;
+}
+
+.nlm-emoji-category-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #5f6368;
+  text-transform: uppercase;
+  margin: 12px 0 8px 0;
+  letter-spacing: 0.8px;
+}
+
+.nlm-emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+}
+
+.nlm-emoji-item {
+  border: none;
+  background: none;
+  font-size: 22px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.1s;
+}
+
+.nlm-emoji-item:hover {
+  background-color: #e8f0fe;
+  transform: scale(1.15);
+}
+
+
+.nlm-color-picker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nlm-color-option {
+  width: 32px;
+  height: 32px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nlm-color-option:hover {
+  transform: scale(1.1);
+}
+
+.nlm-color-option.selected {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #1a73e8;
+}
+
+.nlm-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.nlm-dialog-btn {
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nlm-dialog-btn-cancel {
+  background: none;
+  border: 1px solid var(--modal-border);
+  color: var(--modal-text-secondary);
+}
+
+.nlm-dialog-btn-cancel:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nlm-dialog-btn-create {
+  background-color: #1a73e8;
+  border: none;
+  color: white;
+}
+
+.nlm-dialog-btn-create:hover {
+  background-color: #1557b0;
+}
+
+/* ========================================
+   Context Menu for Folders
+   ======================================== */
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.nlm-folder-context-menu {
+  position: fixed;
+  z-index: 10001;
+  background-color: var(--menu-bg);
+  border-radius: 4px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  min-width: 112px;
+  width: fit-content;
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  transform-origin: top left;
+  animation: nlm-menu-enter 0.1s ease-out forwards;
+}
+
+@keyframes nlm-menu-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- BOTONES --- */
+.nlm-context-menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48.0px;
+  padding: 0 12px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  border-radius: 0px;
+}
+
+/* --- ESTADO HOVER --- */
+.nlm-context-menu-item:hover {
+  background-color: var(--menu-hover);
+}
+
+.nlm-context-menu-item:active {
+  background-color: var(--menu-hover);
+}
+
+/* --- ICONOS --- */
+.nlm-context-menu-item svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  fill: var(--menu-icon);
+  margin-right: 12px;
+  opacity: 1;
+  /* Reset previous opacity */
+}
+
+/* --- TEXTO --- */
+.nlm-context-menu-item-text {
+  font-family: 'Google Sans Text', 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--menu-text);
+  line-height: 20px;
+  white-space: nowrap;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+/* --- VIEW TOGGLE --- */
+.nlm-modal-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.nlm-modal-header-actions h2 {
+  margin-bottom: 0;
+}
+
+.nlm-toggle-group {
+  display: inline-flex;
+  flex-direction: row;
+  border: 1px solid var(--toggle-border);
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 0;
+  transform: translateZ(0);
+  background-color: var(--toggle-bg);
+}
+
+.nlm-toggle-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0 16px;
+  height: 40px;
+  cursor: pointer;
+  color: var(--toggle-icon);
+  transition: background-color 0.2s;
+  outline: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.nlm-toggle-btn:not(:first-child) {
+  border-left: 1px solid var(--toggle-border);
+}
+
+.nlm-toggle-btn:not(.active):hover {
+  background-color: var(--toggle-hover-bg);
+}
+
+.nlm-toggle-btn.active {
+  background-color: var(--toggle-active-bg);
+}
+
+.nlm-toggle-btn svg,
+.nlm-toggle-btn .material-symbols-outlined {
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--toggle-icon);
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+
+.nlm-toggle-btn .check-wrapper {
+  position: relative;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s ease,
+    margin-right 0.2s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.nlm-toggle-btn.active .check-wrapper {
+  width: 24px;
+  opacity: 1;
+  margin-right: 8px;
+}
+
+.nlm-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--toggle-ripple-bg);
+  transform: scale(0);
+  animation: nlm-ripple-animation 600ms linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes nlm-ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* --- MODAL NOTEBOOK GRID --- */
+.nlm-folder-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.nlm-notebook-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 224px;
+  border-radius: 12px;
+  background-color: var(--nlm-card-color, #F5F5F5);
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+
+
+.nlm-notebook-card .nlm-folder-content {
+  padding: 0;
+}
+
+/* --- CUSTOM DELETE DIALOG --- */
+.nlm-delete-dialog-card {
+  background-color: var(--modal-bg);
+  border-radius: 1.75rem;
+  width: fit-content;
+  min-width: 312px;
+  max-width: 560px;
+  padding: 16px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* MDC Initial state */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 150ms cubic-bezier(0, 0, 0.2, 1), transform 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.nlm-folder-modal-overlay.visible .nlm-delete-dialog-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nlm-delete-dialog-content {
+  padding: 24px 24px 16px 24px;
+  color: var(--modal-text-secondary);
+}
+
+.nlm-delete-dialog-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nlm-emoji-icon {
+  font-style: normal;
+  font-size: 20px;
+  margin: 0 4px;
+}
+
+.nlm-delete-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 8px 16px 24px;
+  gap: 8px;
+}
+
+
+
+/* ========================================
+   Custom Rename Dialog (Refined M3 Style)
+   ======================================== */
+
+.nlm-rename-dialog-card {
+  background-color: var(--modal-bg);
+  border-radius: 1.75rem;
+  width: 380px;
+  padding: 24px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nlm-folder-modal-overlay.visible .nlm-rename-dialog-card {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.nlm-rename-icon-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 10px 0 32px 0;
+}
+
+.nlm-rename-icon-circle {
+  width: 140px;
+  height: 140px;
+  background-color: #545d7e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nlm-rename-icon-circle:hover {
+  transform: scale(1.05);
+}
+
+.nlm-rename-emoji-picker-container {
+  margin-bottom: 24px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.nlm-input-group {
+  position: relative;
+  margin-bottom: 32px;
+  height: 64px;
+}
+
+.nlm-custom-input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--modal-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 16px;
+  font-family: 'Google Sans Text', 'Google Sans', 'Roboto', Arial, sans-serif !important;
+  outline: none;
+  background: transparent;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.nlm-floating-label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--modal-bg);
+  padding: 0 4px;
+  color: var(--input-label-idle);
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  font-family: 'Google Sans Text', 'Google Sans', 'Roboto', Arial, sans-serif !important;
+}
+
+/* LÓGICA DE ESTADOS Y COLORES */
+
+/* 1. ESTADO VACÍO (ERROR) */
+.nlm-custom-input:placeholder-shown {
+  border-color: var(--input-error) !important;
+}
+
+.nlm-custom-input:placeholder-shown+.nlm-floating-label {
+  color: var(--input-error) !important;
+}
+
+/* Cuando está vacío y SIN FOCO: Tamaño reducido (18px) */
+.nlm-custom-input:placeholder-shown:not(:focus)+.nlm-floating-label {
+  font-size: 18px;
+  left: 16px;
+}
+
+/* Cuando está vacío pero CON FOCO: Sube el label y se mantiene rojo */
+.nlm-custom-input:placeholder-shown:focus {
+  border-width: 2px;
+}
+
+.nlm-custom-input:placeholder-shown:focus+.nlm-floating-label {
+  top: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 2. ESTADO CON TEXTO (DINÁMICO) */
+/* Si tiene texto y el usuario hace clic: ACENTO */
+.nlm-custom-input:not(:placeholder-shown):focus {
+  border: 2px solid var(--input-accent) !important;
+}
+
+.nlm-custom-input:not(:placeholder-shown):focus+.nlm-floating-label {
+  top: 0;
+  font-size: 12px;
+  color: var(--input-accent) !important;
+  font-weight: 500;
+}
+
+/* Si tiene texto pero el cursor está fuera: IDLE (Válido) */
+.nlm-custom-input:not(:placeholder-shown):not(:focus) {
+  border-color: var(--input-border-idle) !important;
+}
+
+.nlm-custom-input:not(:placeholder-shown):not(:focus)+.nlm-floating-label {
+  top: 0;
+  font-size: 12px;
+  color: var(--input-label-idle);
+}
+
+/* --- BOTONES --- */
+.nlm-rename-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.nlm-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Google Sans Text', 'Google Sans', 'Roboto', Arial, sans-serif !important;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--btn-text-color);
+  height: 40px;
+  padding: 0 16px;
+  min-width: 64px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  isolation: isolate;
+  /* Create new stacking context */
+}
+
+.nlm-btn:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+.nlm-btn-label {
+  position: relative;
+  z-index: 2;
+  /* Keep text above ripple */
+  pointer-events: none;
+}
+
+/* Ripple */
+.nlm-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 600ms linear;
+  background-color: var(--ripple-bg);
+  z-index: 1;
+  /* Below text label */
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

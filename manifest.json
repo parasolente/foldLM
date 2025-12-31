@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "foldLM",
+    "version": "1.0",
+    "description": "Seamlessly integrates with NotebookLM, offering native-like aesthetics and functionality for organizing notebooks.",
+    "permissions": [
+        "storage"
+    ],
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://notebooklm.google.com/*"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "js": [
+                "storage.js",
+                "emoji-picker.js",
+                "folder-ui.js",
+                "drag-drop.js",
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
