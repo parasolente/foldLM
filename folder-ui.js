@@ -581,6 +581,11 @@ const FolderUI = {
  * @param {Object} folder - Folder data
  */
   async showFolderModal(folder) {
+    if (!folder) {
+      console.warn('Attempted to open modal for undefined folder');
+      return;
+    }
+
     if (!this.modalOverlay || !document.body.contains(this.modalOverlay)) {
       this.createModalOverlay();
     }
