@@ -64,18 +64,19 @@ Navigate to [NotebookLM](https://notebooklm.google.com/) and start dragging your
 - `styles.css`: Custom styling for the extension.
 - `icons/`: Contains extension icons.
 
-## Cómo actualizar la extensión
+## How to Update the Extension
 
-Para disfrutar de las nuevas actualizaciones y correcciones de errores sin perder tus carpetas creadas, sigue estos pasos:
+To enjoy new updates and bug fixes without losing your created folders, follow these steps:
 
 > [!IMPORTANT]
-> **NO elimines la extensión de Chrome.** Si la eliminas, se borrarán todas tus carpetas y configuraciones.
+> **DO NOT remove the extension from Chrome.** If you remove it, all your folders and settings will be lost.
 
-1.  **Descarga la nueva versión**: Descarga el archivo ZIP del repositorio o clona nuevamente el proyecto.
-2.  **Identifica tu carpeta actual**: Ubica la carpeta en tu computadora donde tienes guardada la versión actual de la extensión (la que cargaste en Chrome).
-3.  **Sobrescribe los archivos**: Extrae el contenido del nuevo ZIP (o copia los archivos del nuevo clon) y **pégalos dentro de tu carpeta actual**, aceptando reemplazar/sobrescribir los archivos existentes.
-4.  **Recarga en Chrome**:
-    *   Ve a `chrome://extensions`.
-    *   Busca la tarjeta de **foldLM**.
-    *   Haz clic en el icono de **reargar** (flecha circular) 🔄.
-5.  **Listo**: Vuelve a la pestaña de NotebookLM y refresca la página. Tus carpetas seguirán ahí, pero ahora tendrás la versión más reciente.
+1.  **Download the New Version**: Download the ZIP file from the repository or clone the project again.
+2.  **Locate Your Current Folder**: Find the folder on your computer where you have the current version of the extension saved (the one loaded in Chrome).
+3.  **Overwrite Files**: Extract the contents of the new ZIP (or copy files from the new clone) and **paste them into your current folder**, accepting to replace/overwrite existing files.
+4.  **Reload in Chrome**:
+    *   Go to `chrome://extensions`.
+    *   Find the **foldLM** card.
+    *   Click the **reload** icon (circular arrow) 🔄.
+5.  **Done**: Go back to the NotebookLM tab and refresh the page. Your folders will still be there, but you'll now be running the latest version.
+
