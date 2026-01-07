@@ -63,3 +63,19 @@ Navigate to [NotebookLM](https://notebooklm.google.com/) and start dragging your
 - `emoji-picker.js`: Helper for emoji selection.
 - `styles.css`: Custom styling for the extension.
 - `icons/`: Contains extension icons.
+
+## Cómo actualizar la extensión
+
+Para disfrutar de las nuevas actualizaciones y correcciones de errores sin perder tus carpetas creadas, sigue estos pasos:
+
+> [!IMPORTANT]
+> **NO elimines la extensión de Chrome.** Si la eliminas, se borrarán todas tus carpetas y configuraciones.
+
+1.  **Descarga la nueva versión**: Descarga el archivo ZIP del repositorio o clona nuevamente el proyecto.
+2.  **Identifica tu carpeta actual**: Ubica la carpeta en tu computadora donde tienes guardada la versión actual de la extensión (la que cargaste en Chrome).
+3.  **Sobrescribe los archivos**: Extrae el contenido del nuevo ZIP (o copia los archivos del nuevo clon) y **pégalos dentro de tu carpeta actual**, aceptando reemplazar/sobrescribir los archivos existentes.
+4.  **Recarga en Chrome**:
+    *   Ve a `chrome://extensions`.
+    *   Busca la tarjeta de **foldLM**.
+    *   Haz clic en el icono de **reargar** (flecha circular) 🔄.
+5.  **Listo**: Vuelve a la pestaña de NotebookLM y refresca la página. Tus carpetas seguirán ahí, pero ahora tendrás la versión más reciente.
